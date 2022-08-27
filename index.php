@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    Hai
+    <?php
+    $zip = new ZipArchive;
+    if ($zip->open('export.zip', ZipArchive::CREATE) === TRUE)
+    {
+        $zip->addFile('export.txt');
+        $zip->close();
+    }
+    ?>
+    <a href="export.zip">Export</a>
 </body>
 </html>
